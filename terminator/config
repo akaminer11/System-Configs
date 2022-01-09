@@ -15,6 +15,14 @@
     show_titlebar = False
     scrollbar_position = hidden
     palette = "#262a35:#38486e:#4a506f:#525466:#3e5383:#5b6694:#7d82a9:#c3bfcd:#88858f:#38486e:#4a506f:#525466:#3e5383:#5b6694:#7d82a9:#c3bfcd"
+  [[pinky]]
+    background_color = "#282828"
+    background_darkness = 0.75
+    background_type = transparent
+    cursor_color = "#aaaaaa"
+    foreground_color = "#e5a6e6"
+    show_titlebar = False
+    scrollbar_position = hidden
 [layouts]
   [[default]]
     [[[window0]]]
