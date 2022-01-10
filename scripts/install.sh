@@ -6,4 +6,4 @@ pacman -S xorg xorg-xinit nitrogen picom nvidia nvidia-utils
 
 # install tools necessary for base use
 
-pacman -S terminator pcmanfm lxappearance firefox
+pacman -S terminator pcmanfm lxappearance firefox git
