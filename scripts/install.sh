@@ -26,9 +26,9 @@ cp /etc/X11/xinit/xinitrc ${homedir}/.xinitrc
 
 sed '50,$d' ${homedir}/.xinitrc > ${homedir}/temp
 cat ${homedir}/temp > ${homedir}/.xinitrc
-rm temp
+rm ${homedir}/temp
 
-printf 'xrandr --output Virtual1 --mode 1920x1080\n' >> ${homedir}/.xinitrc
+printf '\nxrandr --output Virtual1 --mode 1920x1080\n' >> ${homedir}/.xinitrc
 printf 'picom -f &&\n' >> ${homedir}/.xinitrc
 printf 'nitrogen --restore &&\n' >> ${homedir}/.xinitrc
 printf 'exec i3' >> ${homedir}/.xinitrc
