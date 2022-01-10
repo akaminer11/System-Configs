@@ -28,7 +28,9 @@ sed '50,$d' ${homedir}/.xinitrc > ${homedir}/temp
 cat ${homedir}/temp > ${homedir}/.xinitrc
 rm ${homedir}/temp
 
-printf '\nxrandr --output Virtual1 --mode 1920x1080\n' >> ${homedir}/.xinitrc
-printf 'picom -f &&\n' >> ${homedir}/.xinitrc
-printf 'nitrogen --restore &&\n' >> ${homedir}/.xinitrc
+
+# Use this line if in a vm
+# printf '\nxrandr --output Virtual1 --mode 1920x1080\n' >> ${homedir}/.xinitrc
+printf 'picom -f &\n' >> ${homedir}/.xinitrc
+printf 'nitrogen --restore &\n' >> ${homedir}/.xinitrc
 printf 'exec i3' >> ${homedir}/.xinitrc
