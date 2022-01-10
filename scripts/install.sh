@@ -24,7 +24,9 @@ pacman -Sq --noconfirm terminator pcmanfm lxappearance firefox git arandr dmenu
 
 cp /etc/X11/xinit/xinitrc ${homedir}/.xinitrc
 
-sed '50,$d' ${homedir}/.xinitrc > ${homedir}/.xinitrc
+sed '50,$d' ${homedir}/.xinitrc > ${homedir}/temp
+cat ${homedir}/temp > ${homedir}/.xinitrc
+rm temp
 
 printf 'xrandr --output Virtual1 --mode 1920x1080\n' >> ${homedir}/.xinitrc
 printf 'picom -f &&\n' >> ${homedir}/.xinitrc
