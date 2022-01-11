@@ -52,3 +52,5 @@ mv temp/picom/picom.conf ${homedir}/.config/picom
 
 ###############################################################################
 #                   Window Manager Installed
+
+startx
