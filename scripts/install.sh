@@ -4,6 +4,7 @@
 # Home directory name
 homedir='/home/andy'
 
+pacman -Syu
 
 # install WM and dependencies
 
