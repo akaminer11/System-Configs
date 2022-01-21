@@ -27,6 +27,7 @@ set ttyfast                 " Speed up scrolling in Vim
 " plugins
 call plug#begin()
 Plug 'dracula/vim'
+Plug 'altercation/vim-colors-solarized'
 Plug 'ryanoasis/vim-devicons'
 Plug 'scrooloose/nerdtree'
 Plug 'preservim/nerdcommenter'
@@ -43,7 +44,8 @@ set termguicolors
 endif
 syntax enable 
 " colorscheme evening
-colorscheme dracula
+" colorscheme dracula
+colorscheme solarized
 
 " compositor
 hi Normal guibg=NONE ctermbg=NONE
