@@ -44,8 +44,8 @@ set termguicolors
 endif
 syntax enable 
 " colorscheme evening
-" colorscheme dracula
-colorscheme solarized
+colorscheme dracula
+" colorscheme solarized
 
 " compositor
 hi Normal guibg=NONE ctermbg=NONE
