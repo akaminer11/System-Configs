@@ -35,6 +35,7 @@ Plug 'mhinz/vim-startify'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+Plug 'overcache/NeoSolarized'
 call plug#end()
 
 
