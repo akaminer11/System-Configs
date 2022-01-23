@@ -41,11 +41,16 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
+# brightness controls
+
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -110,16 +115,16 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "Terminal"
-set $ws2 "Browser"
-set $ws3 "3"
+set $ws1 "1: Terminal"
+set $ws2 "2: Browser"
+set $ws3 "3: LaTeX"
 set $ws4 "4"
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
-set $ws10 "10"
+set $ws10 "10: Music"
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -146,11 +151,23 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
 # automatic workspace assignments
-assign [class="Terminator"] $ws1
+assign [class="Alacritty"] $ws1
 assign [class="firefox"] $ws2
+assign [class="Atril"] $ws3
 
-exec terminator
+exec alacritty
 exec firefox
+exec spotify
+exec alacritty -t "LaTeX"
+exec atril
+
+for_window [class="^Spotify$"] move to workspace $ws10
+for_window [title="^LaTeX$"] move to workspace $ws3
+
+# gaps
+for_window [class=".*"] border pixel 0
+workspace $ws1 gaps inner 10
+workspace $ws3 gaps inner 10
 
 
 
@@ -194,5 +211,23 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
+    position top
+    font pango:Inconsolata 10
+    colors {
+        background #282a36
+        statusline #ffffff
+        separator #666666
+                          #border background text
+        focused_workspace  #6272a4 #bd93f9 #000000
+        active_workspace   #333333 #5f676a #ffffff
+        inactive_workspace #333333 #222222 #888888
+        urgent_workspace   #2f343a #900000 #ffffff
+        binding_mode       #2f343a #900000 #ffffff
+    }
+    
+    # bumblebee 
+	status_command /usr/share/bumblebee-status/bumblebee-status -m getcrypto progress git spotify battery date\
+		-p date.format=" %H:%M %a, %b %d %Y" getcrypto.geteth=0 getcrypto.getltc=0  \
+		-t dracula-powerline
+
 }
