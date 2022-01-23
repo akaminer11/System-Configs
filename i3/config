@@ -224,7 +224,7 @@ bar {
         urgent_workspace   #2f343a #900000 #ffffff
         binding_mode       #2f343a #900000 #ffffff
     }
-    
+    # requires ttf-font-awesome-4
     # bumblebee 
 	status_command /usr/share/bumblebee-status/bumblebee-status -m getcrypto progress git spotify battery date\
 		-p date.format=" %H:%M %a, %b %d %Y" getcrypto.geteth=0 getcrypto.getltc=0  \
