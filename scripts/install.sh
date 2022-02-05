@@ -56,4 +56,3 @@ mv temp/picom/picom.conf ${homedir}/.config/picom
 
 chmod +x temp/scripts/bashrc-setup.sh
 temp/scripts/bashrc-setup.sh
-startx
