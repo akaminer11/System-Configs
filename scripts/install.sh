@@ -6,9 +6,13 @@ homedir='/home/andy'
 
 pacman -Syu
 
+# install yay
+git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
+
 # install WM and dependencies
 
 pacman -Sq --noconfirm xorg xorg-xinit nitrogen picom i3-gaps i3blocks i3lock i3status
+yay -S bumblebee-status
 
 # drivers
 pacman -Sq --noconfirm nvidia nvidia-utils
@@ -56,3 +60,5 @@ mv temp/picom/picom.conf ${homedir}/.config/picom
 
 chmod +x temp/scripts/bashrc-setup.sh
 temp/scripts/bashrc-setup.sh
+
+setpriv startx --rgid 1000 --ruid 1000
