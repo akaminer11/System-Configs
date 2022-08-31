@@ -1,3 +1,5 @@
+# seriously. dont use it
+
 #!/bin/bash
 
 # VARIABLES
